@@ -8,7 +8,12 @@ axios.defaults.headers.common['Accept'] = 'application/json';
 
 const API = {
 	async getTrendingMovies() {
-		const response = await axios.get('/trending/movie/week');
+		const response = await axios.get('/trending/movie/day');
+		return response.data;
+	},
+
+	async getMovieById(id) {
+		const response = await axios.get(`/movie/${id}`);
 		return response.data;
 	},
 };

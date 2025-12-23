@@ -1,5 +1,6 @@
 import API from '../../api_image';
 import { useEffect, useState } from 'react';
+import MovieList from '../../components/MovieList/MovieList';
 
 const HomePage = () => {
 	const [movies, setMovies] = useState([]);
@@ -22,12 +23,7 @@ const HomePage = () => {
 	return (
 		<>
 			<h1>Tranding Movie</h1>
-			{movies.length > 0 &&
-				movies.map(movie => (
-					<div key={movie.id}>
-						<p>{movie.title}</p>
-					</div>
-				))}
+			{movies.length > 0 && <MovieList movies={movies} />}
 		</>
 	);
 };

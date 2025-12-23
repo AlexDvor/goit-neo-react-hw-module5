@@ -15,27 +15,25 @@ const SearchBar = ({ submitFn }) => {
 
 	return (
 		<>
-			<header className={s.headerContainer}>
-				<div className='container'>
-					<form className={s.form} onSubmit={e => handleSubmit(e)}>
-						<div className={s.inputThumb}>
-							<div>
-								<CiSearch />
-							</div>
-							<input
-								type='text'
-								autoComplete='off'
-								autoFocus
-								placeholder='Search images and photos'
-								id='search'
-								name='search'
-							/>
+			<div className='container'>
+				<form className={s.form} onSubmit={e => handleSubmit(e)}>
+					<div className={s.inputThumb}>
+						<div>
+							<CiSearch />
 						</div>
+						<input
+							type='text'
+							autoComplete='off'
+							autoFocus
+							placeholder='Search movie'
+							id='search'
+							name='search'
+						/>
+					</div>
 
-						<button type='submit'>Search</button>
-					</form>
-				</div>
-			</header>
+					<button type='submit'>Search</button>
+				</form>
+			</div>
 		</>
 	);
 };
