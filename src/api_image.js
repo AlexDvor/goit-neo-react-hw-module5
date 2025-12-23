@@ -6,10 +6,6 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.headers.common['Authorization'] = `Bearer ${API_KEY}`;
 axios.defaults.headers.common['Accept'] = 'application/json';
 
-const getSearchParams = () => {
-	return {};
-};
-
 const API = {
 	async getTrendingMovies() {
 		const response = await axios.get('/trending/movie/week');
