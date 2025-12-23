@@ -1,21 +1,18 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://api.unsplash.com/search/photos';
+const API_KEY = import.meta.env.VITE_ACCESS_KEY_TOKEN;
 
-const API_KEY = import.meta.env.VITE_ACCESS_KEY;
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+axios.defaults.headers.common['Authorization'] = `Bearer ${API_KEY}`;
+axios.defaults.headers.common['Accept'] = 'application/json';
 
-const getSearchParams = (page, query, per_page = 20) => {
-	return {
-		client_id: API_KEY,
-		page,
-		query,
-		per_page,
-	};
+const getSearchParams = () => {
+	return {};
 };
 
 const API = {
-	async getPhotoBySearch(page, query) {
-		const response = await axios.get('', { params: getSearchParams(page, query) });
+	async getTrendingMovies() {
+		const response = await axios.get('/trending/movie/week');
 		return response.data;
 	},
 };
