@@ -1,0 +1,11 @@
+.wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80vh;
+}
+
+.wrap > p {
+	color: rgb(184, 19, 19);
+	font-size: 22px;
+}

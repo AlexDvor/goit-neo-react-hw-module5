@@ -1,0 +1,47 @@
+.headerContainer {
+	background-color: rgb(16, 160, 160);
+	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+.inputThumb {
+	position: relative;
+}
+.inputThumb > div {
+	position: absolute;
+	left: 5px; /* відступ від лівого краю */
+	top: 50%; /* ставимо по центру */
+	transform: translateY(-50%); /* корекція по вертикалі */
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	color: #555; /* можна задати колір іконки */
+	pointer-events: none; /* щоб клік проходив на інпут */
+}
+
+.inputThumb > input {
+	border: none;
+	background-color: antiquewhite;
+	height: 30px;
+	padding-left: 30px;
+	border-radius: 5px;
+	width: 300px;
+}
+
+.inputThumb > button {
+	height: 30px;
+	border: none;
+}
+
+.form > button:hover,
+.form > button:focus {
+	background-color: antiquewhite;
+}
