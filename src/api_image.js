@@ -6,6 +6,14 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.headers.common['Authorization'] = `Bearer ${API_KEY}`;
 axios.defaults.headers.common['Accept'] = 'application/json';
 
+const axiosParams = (query, page) => {
+	return {
+		query,
+		page,
+		include_adult: true,
+	};
+};
+
 const API = {
 	async getTrendingMovies() {
 		const response = await axios.get('/trending/movie/day');
@@ -16,6 +24,15 @@ const API = {
 		const response = await axios.get(`/movie/${id}`);
 		return response.data;
 	},
+
+	async getMovieBySearch(query, page = 1) {
+		const response = await axios.get(`/search/movie`, {
+			params: axiosParams(query, page),
+		});
+		return response.data;
+	},
 };
 
 export default API;
+
+// https://api.themoviedb.org/3/search/movie

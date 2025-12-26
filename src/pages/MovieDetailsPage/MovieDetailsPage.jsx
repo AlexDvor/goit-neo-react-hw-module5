@@ -1,18 +1,21 @@
 import { useState, useEffect } from 'react';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
-import { useParams } from 'react-router';
-import s from './MovieDetailsPage.module.css';
+import { Outlet, useParams } from 'react-router';
+import { Link } from 'react-router';
+
 import API from '../../api_image';
+import s from './MovieDetailsPage.module.css';
 
 const MovieDetailsPage = () => {
 	const [movie, setMovie] = useState(null);
 	const { movieId } = useParams();
 
 	useEffect(() => {
+		if (!movieId) return;
 		const fetch = async () => {
 			try {
 				const data = await API.getMovieById(movieId);
-				console.log('🚀 ~ data:', data);
+
 				if (!data) return;
 				setMovie(data);
 			} catch (error) {
@@ -24,6 +27,7 @@ const MovieDetailsPage = () => {
 
 	return (
 		<>
+			<button>Go back</button>
 			{movie && (
 				<div className={s.container}>
 					<div className={s.imageThumb}>
@@ -47,6 +51,11 @@ const MovieDetailsPage = () => {
 					</div>
 				</div>
 			)}
+
+			<Link to='cast'>Cast</Link>
+			<br />
+			<Link to='review'>Reviews</Link>
+			<Outlet />
 		</>
 	);
 };

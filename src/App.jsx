@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router';
 import HomePage from './pages/HomePage/HomePage';
 import MoviesPage from './pages/MoviesPage/MoviesPage';
 import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 import MovieCast from './components/MovieCast/MovieCast';
 import MovieReviews from './components/MovieReviews/MovieReviews';
@@ -16,10 +17,10 @@ function App() {
 				<Route path='/' element={<HomePage />} />
 				<Route path='/movies' element={<MoviesPage />} />
 				<Route path='/movies/:movieId' element={<MovieDetailsPage />}>
-					<Route path='/movies/:movieId/cast' element={<MovieCast />} />
-					<Route path='/movies/:movieId/review' element={<MovieReviews />} />
+					<Route path='cast' element={<MovieCast />} />
+					<Route path='review' element={<MovieReviews />} />
 				</Route>
-				<Route path='/' element={<HomePage />} />
+				<Route path='*' element={<NotFoundPage />} />
 			</Routes>
 		</>
 	);
