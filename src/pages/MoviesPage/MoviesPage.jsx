@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import MovieList from '../../components/MovieList/MovieList';
-
 import API from '../../api_image';
 
 const MoviesPage = () => {
@@ -27,7 +26,7 @@ const MoviesPage = () => {
 	}, [query]);
 
 	const handleSubmit = value => {
-		if (!value.trim()) return;
+		if (!value) return;
 		setSearchParams({ query: value });
 	};
 
