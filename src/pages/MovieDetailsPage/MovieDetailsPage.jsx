@@ -2,13 +2,17 @@ import { useState, useEffect } from 'react';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import { Outlet, useParams } from 'react-router';
 import { Link } from 'react-router';
+import { useLocation } from 'react-router';
 
 import API from '../../api_image';
 import s from './MovieDetailsPage.module.css';
+import { useNavigate } from 'react-router';
 
 const MovieDetailsPage = () => {
 	const [movie, setMovie] = useState(null);
 	const { movieId } = useParams();
+	const location = useLocation();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (!movieId) return;
@@ -25,9 +29,13 @@ const MovieDetailsPage = () => {
 		fetch();
 	}, [movieId]);
 
+	const handleBack = () => {
+		if (!location) return;
+		navigate(location.state);
+	};
 	return (
 		<>
-			<button>Go back</button>
+			<button onClick={handleBack}>Go back</button>
 			{movie && (
 				<div className={s.container}>
 					<div className={s.imageThumb}>

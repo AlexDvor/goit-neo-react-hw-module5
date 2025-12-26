@@ -1,11 +1,13 @@
 import { Link } from 'react-router';
 import s from './MovieItem.module.css';
 
-const MovieItem = ({ movie }) => {
+const MovieItem = ({ movie, state }) => {
 	const { title, id } = movie;
 	return (
 		<li className={s.card} onClick={() => console.log(id)}>
-			<Link to={`/movies/${id}`}>{title}</Link>
+			<Link to={`/movies/${id}`} state={state}>
+				{title}
+			</Link>
 		</li>
 	);
 };
