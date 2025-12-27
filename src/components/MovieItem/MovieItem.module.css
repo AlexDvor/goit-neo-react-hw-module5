@@ -1,3 +1,18 @@
 .card {
+	height: 350px;
 	cursor: pointer;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 7px 10px 5px -3px rgba(0, 0, 0, 0.1);
+	transition: scale 0.5s ease-out allow-discrete;
+}
+
+.card:hover,
+.card:focus {
+	scale: 0.9;
+}
+
+.imageThumb {
+	width: 100%;
+	height: 100%;
 }

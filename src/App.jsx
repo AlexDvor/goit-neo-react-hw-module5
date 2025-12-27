@@ -13,15 +13,17 @@ function App() {
 	return (
 		<>
 			<Navigation />
-			<Routes>
-				<Route path='/' element={<HomePage />} />
-				<Route path='/movies' element={<MoviesPage />} />
-				<Route path='/movies/:movieId' element={<MovieDetailsPage />}>
-					<Route path='cast' element={<MovieCast />} />
-					<Route path='review' element={<MovieReviews />} />
-				</Route>
-				<Route path='*' element={<NotFoundPage />} />
-			</Routes>
+			<div className='container'>
+				<Routes>
+					<Route path='/' element={<HomePage />} />
+					<Route path='/movies' element={<MoviesPage />} />
+					<Route path='/movies/:movieId' element={<MovieDetailsPage />}>
+						<Route path='cast' element={<MovieCast />} />
+						<Route path='review' element={<MovieReviews />} />
+					</Route>
+					<Route path='*' element={<NotFoundPage />} />
+				</Routes>
+			</div>
 		</>
 	);
 }

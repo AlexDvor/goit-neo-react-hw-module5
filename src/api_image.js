@@ -31,6 +31,15 @@ const API = {
 		});
 		return response.data;
 	},
+	async getCastByMovieId(movieId) {
+		const response = await axios.get(`/movie/${movieId}/credits`);
+		return response.data;
+	},
+
+	async getReviewByMovieId(movieId) {
+		const response = await axios.get(`/movie/${movieId}/reviews`);
+		return response.data;
+	},
 };
 
 export default API;

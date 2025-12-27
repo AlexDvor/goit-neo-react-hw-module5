@@ -6,7 +6,7 @@ const MovieList = ({ movies }) => {
 	const currentLocation = useLocation();
 
 	return (
-		<ul>
+		<ul className={s.list}>
 			{movies.map(movie => (
 				<MovieItem movie={movie} key={movie.id} state={currentLocation} />
 			))}

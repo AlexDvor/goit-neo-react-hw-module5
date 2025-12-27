@@ -1,7 +1,44 @@
-import React from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import { useParams } from 'react-router';
+import API from '../../api_image';
 
 const MovieReviews = () => {
-	return <div>MovieReviews</div>;
+	const { movieId } = useParams();
+	const [reviews, setReviews] = useState([]);
+
+	useEffect(() => {
+		if (!movieId) return;
+
+		const fetchCast = async () => {
+			try {
+				const { results } = await API.getReviewByMovieId(movieId);
+				setReviews(results || []);
+			} catch (error) {
+				console.log('🚀 ~ error:', error);
+			}
+		};
+
+		fetchCast();
+	}, [movieId]);
+
+	return (
+		<>
+			{reviews.length > 0 ? (
+				<>
+					<ul>
+						{reviews.map(item => (
+							<li key={item.id}>
+								<p>Author:{item.author}</p>
+								<p>{item.content}</p>
+							</li>
+						))}
+					</ul>
+				</>
+			) : (
+				<></>
+			)}
+		</>
+	);
 };
 
 export default MovieReviews;

@@ -4,14 +4,13 @@ import MovieList from '../../components/MovieList/MovieList';
 
 const HomePage = () => {
 	const [movies, setMovies] = useState([]);
+
 	useEffect(() => {
 		const fetchMovies = async () => {
 			try {
 				const data = await API.getTrendingMovies();
 				if (!data.results) return;
-
 				setMovies(data.results);
-				console.log('🚀 ~ data:', data);
 			} catch (error) {
 				console.log('🚀 ~ error:', error);
 			}
