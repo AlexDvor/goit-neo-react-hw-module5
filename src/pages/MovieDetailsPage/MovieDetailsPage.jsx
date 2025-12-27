@@ -48,6 +48,7 @@ const MovieDetailsPage = () => {
 						<div className={s.imageThumb}>
 							<img
 								src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
+								alt={movie.title}
 							/>
 						</div>
 						<div>

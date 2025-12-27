@@ -7,6 +7,7 @@ import API from '../../api_image';
 const MovieCast = () => {
 	const { movieId } = useParams();
 	const [cast, setCast] = useState([]);
+	console.log('🚀 ~ cast:', cast);
 
 	useEffect(() => {
 		if (!movieId) return;
@@ -35,6 +36,7 @@ const MovieCast = () => {
 							<div className={s.imageThumb}>
 								<img
 									src={`https://image.tmdb.org/t/p/w500${item.profile_path}`}
+									alt={item.name}
 								/>
 							</div>
 							<p>{item.name}</p>
