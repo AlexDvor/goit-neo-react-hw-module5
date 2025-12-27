@@ -20,7 +20,6 @@ const MoviesPage = () => {
 			try {
 				setIsLoading(true);
 				const { results } = await API.getMovieBySearch(query);
-				console.log('🚀 ~ results:', results);
 				setMovies(results || []);
 			} catch (error) {
 				setMovies([]);
