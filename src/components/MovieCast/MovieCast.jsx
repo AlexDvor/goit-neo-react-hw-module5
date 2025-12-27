@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo } from 'react';
+import ContentLayout from '../../layout/ContentLayout';
 import { useParams } from 'react-router';
 import s from './MovieCast.module.css';
 import API from '../../api_image';
@@ -26,7 +27,7 @@ const MovieCast = () => {
 	const filteredCast = useMemo(() => cast.filter(item => item.profile_path), [cast]);
 
 	return (
-		<>
+		<ContentLayout>
 			{filteredCast.length > 0 && (
 				<ul className={s.list}>
 					{filteredCast.map(item => (
@@ -41,7 +42,7 @@ const MovieCast = () => {
 					))}
 				</ul>
 			)}
-		</>
+		</ContentLayout>
 	);
 };
 

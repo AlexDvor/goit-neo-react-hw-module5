@@ -1,5 +1,6 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import ContentLayout from '../../layout/ContentLayout';
 import API from '../../api_image';
 
 const MovieReviews = () => {
@@ -22,13 +23,13 @@ const MovieReviews = () => {
 	}, [movieId]);
 
 	return (
-		<>
+		<ContentLayout>
 			{reviews.length > 0 ? (
 				<>
 					<ul>
 						{reviews.map(item => (
 							<li key={item.id}>
-								<p>Author:{item.author}</p>
+								<p>{item.author}</p>
 								<p>{item.content}</p>
 							</li>
 						))}
@@ -37,7 +38,7 @@ const MovieReviews = () => {
 			) : (
 				<></>
 			)}
-		</>
+		</ContentLayout>
 	);
 };
 

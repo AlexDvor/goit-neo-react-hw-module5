@@ -1,11 +1,26 @@
 .container {
 	display: grid;
 	grid-template-columns: 300px 1fr;
-	border-bottom: 2px solid gainsboro;
-	padding: 20px 0px;
+	/* border-bottom: 2px solid gainsboro;
+	padding: 20px 0px; */
+	gap: 20px;
 }
 
 .imageThumb {
 	width: 300px;
 	height: 400px;
+}
+
+.genresList {
+	list-style: circle;
+	margin-left: 20px;
+}
+
+.linkList {
+	display: flex;
+	gap: 10px;
+}
+
+.active {
+	text-decoration: underline;
 }

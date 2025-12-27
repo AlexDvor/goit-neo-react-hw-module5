@@ -1,6 +1,6 @@
-import styles from './ProgressBar.module.css';
+import styles from './ScoreBar.module.css';
 
-export default function ProgressBar({ rating }) {
+export default function ScoreBar({ rating }) {
 	const percent = Math.round((rating / 10) * 100);
 
 	const fillColor = percent > 70 ? '#4caf50' : percent > 40 ? '#ff9800' : '#f44336';
