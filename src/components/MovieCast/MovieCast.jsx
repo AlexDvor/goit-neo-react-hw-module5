@@ -7,7 +7,6 @@ import API from '../../api_image';
 const MovieCast = () => {
 	const { movieId } = useParams();
 	const [cast, setCast] = useState([]);
-	console.log('🚀 ~ cast:', cast);
 
 	useEffect(() => {
 		if (!movieId) return;

@@ -15,6 +15,7 @@ const MovieDetailsPage = () => {
 	const { movieId } = useParams();
 	const location = useLocation();
 	const navigate = useNavigate();
+	const backLinkHref = location.state?.from ?? '/movies';
 
 	const isActive = ({ isActive }) => (isActive ? s.active : '');
 	useEffect(() => {
@@ -33,8 +34,7 @@ const MovieDetailsPage = () => {
 	}, [movieId]);
 
 	const handleBack = () => {
-		console.log('location', location);
-		navigate(location.state || '/');
+		navigate(backLinkHref);
 	};
 	return (
 		<>

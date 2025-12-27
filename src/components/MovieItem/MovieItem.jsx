@@ -6,7 +6,7 @@ const MovieItem = ({ movie, state }) => {
 
 	return (
 		<li className={s.card}>
-			<Link to={`/movies/${id}`} state={state}>
+			<Link to={`/movies/${id}`} state={{ from: state }}>
 				<div className={s.imageThumb}>
 					<img
 						src={`https://image.tmdb.org/t/p/w780${poster_path}`}
