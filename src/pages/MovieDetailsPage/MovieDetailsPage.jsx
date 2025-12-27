@@ -4,6 +4,7 @@ import { Outlet, useParams } from 'react-router';
 import { Link, NavLink } from 'react-router';
 import { useLocation } from 'react-router';
 import ContentLayout from '../../layout/ContentLayout';
+import { IoReturnUpBackOutline } from 'react-icons/io5';
 
 import API from '../../api_image';
 import s from './MovieDetailsPage.module.css';
@@ -32,13 +33,16 @@ const MovieDetailsPage = () => {
 	}, [movieId]);
 
 	const handleBack = () => {
-		if (!location) return;
-		navigate(location.state);
+		console.log('location', location);
+		navigate(location.state || '/');
 	};
 	return (
 		<>
 			<ContentLayout>
-				<button onClick={handleBack}>Go back</button>
+				<button type='button' className={s.btnBack} onClick={handleBack}>
+					<IoReturnUpBackOutline />
+					<span>Go back</span>
+				</button>
 				{movie && (
 					<div className={s.container}>
 						<div className={s.imageThumb}>

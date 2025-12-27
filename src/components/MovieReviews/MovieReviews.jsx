@@ -36,7 +36,9 @@ const MovieReviews = () => {
 					</ul>
 				</>
 			) : (
-				<></>
+				<>
+					<p>{`We don't have any reviews for this movie`}</p>
+				</>
 			)}
 		</ContentLayout>
 	);

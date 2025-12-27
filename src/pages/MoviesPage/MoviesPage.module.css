@@ -1,0 +1,9 @@
+.searchContainer {
+	margin-top: 20px;
+}
+
+.notFoundMs {
+	height: 100%;
+	padding: 10px;
+	color: rgb(196, 24, 24);
+}

@@ -22,7 +22,7 @@ const SearchBar = ({ initialValue = '', submitFn }) => {
 	};
 
 	return (
-		<div className='container'>
+		<>
 			<form className={s.form} onSubmit={handleSubmit}>
 				<div className={s.inputThumb}>
 					<div>
@@ -41,7 +41,7 @@ const SearchBar = ({ initialValue = '', submitFn }) => {
 
 				<button type='submit'>Search</button>
 			</form>
-		</div>
+		</>
 	);
 };
 
